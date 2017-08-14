@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>LiveVideo</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root></app-root>
+  <script src="//cdn.webrtc-experiment.com/socket.io.js"> </script>
+  <script src="//cdn.webrtc-experiment.com/RTCPeerConnection-v1.5.js"> </script> 
+  <script>
+    var conference=function(e){function n(n){n.userToken!=d.userToken&&(u&&n.roomToken&&n.broadcaster&&e.onRoomFound(n),n.newParticipant&&d.joinedARoom&&d.broadcasterid==n.userToken&&a(n.newParticipant),n.userToken&&n.joinUser==d.userToken&&n.participant&&-1==c.indexOf(n.userToken)&&(c+=n.userToken+"--",o({isofferer:!0,channel:n.channel||n.userToken})),n.left&&e.onRoomClosed&&e.onRoomClosed(n))}function o(n){function o(e){e?(v.offerSDP=e,v.onAnswerSDP=a):v.onOfferSDP=a,l=new RTCPeerConnection(v)}function r(){T=!0,e.onRemoteStream&&e.onRemoteStream({video:h,stream:n.stream}),s&&c.split("--").length>3&&f.send({newParticipant:p.channel,userToken:d.userToken})}function t(){if(navigator.userAgent.match(/Android|iPhone|iPad|iPod|BlackBerry|IEMobile/i))return r();h.readyState<=HTMLMediaElement.HAVE_CURRENT_DATA||h.paused||h.currentTime<=0?setTimeout(t,50):r()}function a(e){p.send({userToken:d.userToken,sdp:JSON.stringify(e)})}function i(e){e.userToken!=d.userToken&&(e.sdp&&(R.sdp=JSON.parse(e.sdp),u()),e.candidate&&!T&&(l?l.addICE({sdpMLineIndex:e.candidate.sdpMLineIndex,candidate:JSON.parse(e.candidate.candidate)}):console.error("missed an ice",e.candidate)),e.left&&l&&l.peer&&(l.peer.close(),l.peer=null))}function u(){E||(E=!0,S?l.addAnswerSDP(R.sdp):o(R.sdp))}if(n.channel){var k={channel:n.channel,onmessage:i,onopen:function(){S&&!l&&o(),m[m.length]=p}};k.callback=function(e){p=e,this.onopen()};var T,l,p=e.openSocket(k),S=n.isofferer,h=document.createElement("video"),R={},v={attachStream:e.attachStream,onICE:function(e){p.send({userToken:d.userToken,candidate:{sdpMLineIndex:e.sdpMLineIndex,candidate:JSON.stringify(e.candidate)}})},onRemoteStream:function(e){e&&(h[moz?"mozSrcObject":"src"]=moz?e:webkitURL.createObjectURL(e),h.play(),n.stream=e,t())},onRemoteStreamEnded:function(n){e.onRemoteStreamEnded&&e.onRemoteStreamEnded(n,h)}},E=!1}}function r(){for(var n=m.length,o=0;o<n;o++){var r=m[o];r&&(r.send({left:!0,userToken:d.userToken}),delete m[o])}s&&f.send({left:!0,userToken:d.userToken,roomToken:d.roomToken}),e.attachStream&&e.attachStream.stop()}function t(){f&&f.send({roomToken:d.roomToken,roomName:d.roomName,broadcaster:d.userToken}),setTimeout(t,3e3)}function a(e){if(e&&-1==c.indexOf(e)&&e!=d.userToken){c+=e+"--";var n=i();o({channel:n}),f.send({participant:!0,userToken:d.userToken,joinUser:e,channel:n})}}function i(){var e=function(){return Math.floor(65536*Math.random()).toString(16)};return e()+e()+"-"+e()+"-"+e()+"-"+e()+"-"+e()+e()+e()}var s,d={userToken:i()},c="--",u=!0,m=[],f={};return window.addEventListener("beforeunload",function(){r()},!1),window.addEventListener("keyup",function(e){116==e.keyCode&&r()},!1),function(){f=e.openSocket({onmessage:n,callback:function(e){f=e}})}(),{createRoom:function(e){d.roomName=e.roomName||"Anonymous",d.roomToken=i(),s=!0,u=!1,t()},joinRoom:function(e){d.roomToken=e.roomToken,u=!1,d.joinedARoom=!0,d.broadcasterid=e.joinUser,o({channel:d.userToken}),f.send({participant:!0,userToken:d.userToken,joinUser:e.joinUser})},leaveRoom:r}};</script>
+</body>
+</html>

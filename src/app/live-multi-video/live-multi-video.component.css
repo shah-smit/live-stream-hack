@@ -1,0 +1,34 @@
+.mute1 {
+   position: absolute;
+   background: #fd9c28 none repeat scroll 0% 0%;
+   width: 90px;
+   /* or whatever */
+   color: white;
+   /* or whatever */
+   font-size: 20px;
+   text-align: center;
+ }
+
+ .mute{
+     display: none;
+     margin: 0px;
+ }
+
+
+ .video-list-container
+{
+    width: 100%;
+    height: 400px;
+    overflow:scroll;
+    white-space: nowrap;
+}
+
+.students-container
+{
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+    margin-left: 10px;
+    height: 350px;
+    width: 300px;
+}
