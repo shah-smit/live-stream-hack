@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { LiveMultiVideoComponent } from './live-multi-video/live-multi-video.component';
-import { HomeComponent } from "./home-component/home-component.component";
+import { HomeComponent } from "./home-component/home.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },  
