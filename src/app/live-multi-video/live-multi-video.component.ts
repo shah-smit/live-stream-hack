@@ -125,6 +125,8 @@ export class LiveMultiVideoComponent implements OnInit {
         var video = document.createElement('video');
         video.setAttribute('autoplay', 'true');
         video.setAttribute('controls', 'true');
+        video.height = 300;
+        video.width = 300;
         self.videosContainer.insertBefore(video, self.videosContainer.firstChild);
 
         self.getUserMedia({
