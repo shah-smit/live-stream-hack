@@ -37,7 +37,7 @@ export class LiveMultiVideoComponent implements OnInit {
 
         self.config = {
             openSocket: function (config) {
-                var SIGNALING_SERVER = 'https://cudy-socketio-over-nodejs.herokuapp.com:443/',
+                var SIGNALING_SERVER = 'https://angular-live-stream.herokuapp.com:443/',
                     //var SIGNALING_SERVER = 'http://localhost:5000/',
                     defaultChannel = location.href.replace(/\/|:|#|%|\.|\[|\]/g, '');
 
