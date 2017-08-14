@@ -21,5 +21,5 @@ ensure that the command `ng build -prod` is being excuted without any error.
 - Ensure to perform `ng test` before making a pull-request
 
 ## Contributors
-[Smit](https://github.com/shah-smit)
-[Muaz](https://github.com/muaz-khan)
+- [Smit](https://github.com/shah-smit)
+- [Muaz](https://github.com/muaz-khan)
