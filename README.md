@@ -1,19 +1,19 @@
 # LiveVideo
 
 ## Prerequisite
-Node v7.4.0
-Angular-Cli v1.3.0
+- Node v7.4.0
+- Angular-Cli v1.3.0
 
 ## Setup
-Clone the repository
-go to the directory
-perform `npm install`
+- Clone the repository
+- go to the directory
+- perform `npm install`
 
 ## Run the project
-perform `ng serve`
+- perform `ng serve`
 
 ## Deployment
-ensure that the command `ng build -prod` is being excuted without any error.
+- ensure that the command `ng build -prod` is being excuted without any error.
 
 ## Test Driven Development
 - Currently using Travis-Cli
