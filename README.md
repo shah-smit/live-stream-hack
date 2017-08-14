@@ -16,7 +16,7 @@
 - ensure that the command `ng build -prod` is being excuted without any error.
 
 ## Test Driven Development
-- Currently using Travis-Cli
+[![Build Status](https://travis-ci.org/shah-smit/live-stream-hack.svg?branch=master)](https://travis-ci.org/shah-smit/live-stream-hack/builds)
 - Every helper-method written must have a test associated with it.
 - Ensure to perform `ng test` before making a pull-request
 
