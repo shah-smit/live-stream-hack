@@ -16,6 +16,7 @@ perform `ng serve`
 ensure that the command `ng build -prod` is being excuted without any error.
 
 ## Test Driven Development
+- Currently using Travis-Cli
 - Every helper-method written must have a test associated with it.
 - Ensure to perform `ng test` before making a pull-request
 
