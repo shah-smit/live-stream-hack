@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 //declare var SimpleWebRTC;
 declare var $;
@@ -21,10 +21,15 @@ export class LiveMultiVideoComponent implements OnInit {
     cudySocket;
     localStream;
     isMute;
-    
-    constructor(private router: Router) { }
+    sub;
+    parentRouteId;
+    constructor(private router: Router,private route: ActivatedRoute) { }
 
     ngOnInit() {
+        this.sub = this.route.params.subscribe(params => {
+            this.parentRouteId = params["id"];
+            console.log(params);
+        });
         this.isMute = false;
         this.setup();
     }
@@ -113,8 +118,9 @@ export class LiveMultiVideoComponent implements OnInit {
         document.getElementById('setup-new-room').onclick = function () {
             // this.disabled = true;
             self.captureUserMedia(function () {
+                console.log(self.parentRouteId);
                 self.conferenceUI.createRoom({
-                    roomName: 'Anonymous'
+                    roomName: self.parentRouteId
                 });
             });
         };
